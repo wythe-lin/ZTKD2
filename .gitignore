@@ -47,6 +47,8 @@ modules.builtin
 *.lnp
 *.plg
 *.lib
+*.prj
+*.pui
 
 #
 # Top-level generic files
