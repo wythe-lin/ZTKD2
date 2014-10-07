@@ -1,0 +1,82 @@
+//
+// Zealtek D2 project
+// D2 Library Header File
+//
+// Zealtek internal usage only.
+// All files in this project cannot be released to customers.
+//
+// July 3, 2013.
+
+#ifndef __SDRAM_H__
+#define __SDRAM_H__
+
+#if CLK_SDRAM >= 160
+
+	#if 0 // Wythe tested on June 27
+	#define SDRAM_TIMING \
+		{0x00C, 0x00},\
+		{0x102, 0x0B},\
+		{0x103, 0x22},\
+		{0x108, 0x27},\
+		{0x10A, 0x69},\
+		{0x10B, 0x23},\
+		{0x10C, 0x16},\
+		{0x106, 0x00},\
+		{0x107, 0x0A},\
+		{0x100, 0x01},
+	#endif // Wythe tested on June 27
+
+	#if 1 // Wythe tuned in 2012
+	#define SDRAM_TIMING \
+		{0x102, 0x0B},\
+		{0x103, 0x22},\
+		{0x108, 0x96},\
+		{0x10A, 0x65},\
+		{0x10B, 0x23},\
+		{0x106, 0x00},\
+		{0x107, 0x09},\
+		{0x100, 0x01},
+	#endif // Wythe tuned in 2012
+
+#elif  CLK_SDRAM >= 120
+
+	#define SDRAM_TIMING \
+		{0x100, 0x01},
+
+#else  // CLK_SDRAM
+
+	#define SDRAM_TIMING \
+		{0x100, 0x01},
+
+#endif // CLK_SDRAM
+
+#ifdef SDRAM_8MB_4x16
+
+	// SDRAM size 8MB
+	#define SDRAM_CONFIGURATION \
+		{0x10D, 0x00},\
+		{0x10E, 0x00},\
+		{0x10F, 0x00},\
+		{0x110, 0x09},\
+		{0x111, 0x0A},\
+		{0x112, 0x0B},\
+		{0x113, 0x0C},\
+		{0x114, 0x0D},\
+		{0x115, 0x0E},\
+		{0x116, 0x0F},\
+		{0x117, 0x10},\
+		{0x118, 0x11},\
+		{0x119, 0x12},\
+		{0x11A, 0x13},\
+		{0x11B, 0x14},\
+		{0x11C, 0x15},\
+		{0x11D, 0x16},
+
+#else  // SDRAM_8MB_4x16
+
+	// SDRAM size 16MB
+	#define SDRAM_CONFIGURATION
+
+#endif // SDRAM_8MB_4x16
+
+#endif // __SDRAM_H__
