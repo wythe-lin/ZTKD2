@@ -88,7 +88,7 @@
 		#error Maximum Clock Divider for CLK_SENSOR is 16.
 	#endif // (CLK_PLL / CLK_SENSOR >= 16)
 
-	//#define SENSOR_ONCHIP_LDO
+	#define SENSOR_ONCHIP_LDO
 	#define DRIVING_ABILITY 1 // for customer target boards
 	//#define DRIVING_ABILITY 2 // for NTK sensor daughter boards
 
