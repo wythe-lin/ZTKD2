@@ -154,8 +154,11 @@ void fnDoInitialization()
 	// PIO0 controls video decoder.
 	// PIO1 controls video sensor.
 	// The codes may not required if the controls are not implemented by hardware PCB.
-	//fnD2SetPIO0(1);
-	//fnD2SetPIO1(1);
+	fnD2SetPIO0(0); // Set pin RESET low
+	fnD2SetPIO1(0); // Set pin RESET low
+	fnD2IdleDelay(100); // count 100 around 12ms
+	fnD2SetPIO0(1);
+	fnD2SetPIO1(1);
 #endif // SUPPORT_D2_PIO
 	D2DisableSensorClock();
 
