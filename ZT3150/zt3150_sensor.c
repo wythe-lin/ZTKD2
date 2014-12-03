@@ -23,6 +23,9 @@
 	#include "zt3150_nt99141.c"
 #elif ZT3150_SENSOR == ZT3150_SENSOR_ZT3150
 	// No customer files are prepared for this solution.
+#elif ZT3150_SENSOR == ZT3150_SENSOR_ZT3150HD
+	// No customer files are prepared for this solution.
+
 #endif // ZT3150_SENSOR
 
 #ifdef SUPPORT_D2_OPERATION

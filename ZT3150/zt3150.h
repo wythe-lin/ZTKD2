@@ -62,8 +62,9 @@
 //#define ZT3150_OV7725_SCALED
 //#define ZT3150_NT99050
 //#define ZT3150_NT99140
-#define ZT3150_NT99141
-//#define ZT3150_ZT3150
+//#define ZT3150_NT99141
+#define ZT3150_ZT3150
+//#define ZT3150_ZT3150HD
 ////////////////////////////////////////////////////////////////////////////////
 //  End of ZT3150 solutions
 ////////////////////////////////////////////////////////////////////////////////
@@ -75,6 +76,7 @@
 #define ZT3150_SENSOR_NT99140		3
 #define ZT3150_SENSOR_NT99141		4
 #define ZT3150_SENSOR_ZT3150		5
+#define ZT3150_SENSOR_ZT3150HD		6
 
 ///// Supporting List of Video solutions
 #define ZT3150_SOLUTION_NONE		0
@@ -83,6 +85,7 @@
 #define ZT3150_SOLUTION_HD		3
 #define ZT3150_SOLUTION_CCTV		4
 #define ZT3150_SOLUTION_D2VGA		5
+#define ZT3150_SOLUTION_D2HD		6
 
 ///// Supporting List of Calibration Types
 #define ZT3150_CALIBRATION_NONE		0
@@ -91,6 +94,7 @@
 #define ZT3150_CALIBRATION_DUAL		3
 #define ZT3150_CALIBRATION_SCALED	4
 #define ZT3150_CALIBRATION_D2VGA	5
+#define ZT3150_CALIBRATION_D2HD		6
 
 ///// Supporting List of Image Stitching Size
 #define STITCHING_SIZE_1280x480		0
@@ -103,7 +107,7 @@
 #define STITCHING_SIZE_1920x560		7
 #define STITCHING_SIZE_1920x496		8
 #define STITCHING_SIZE_2560x496		9
-
+#define STITCHING_SIZE_1920x1080	10
 
 #ifdef ZT3150_OV7725
 	#define SUPPORT_D2_PAN		// Support Panorama Adjustment on stitching mode
@@ -198,6 +202,18 @@
     #define SUPPORT_D2_LAYER2
 #endif
 
+#ifdef ZT3150_ZT3150HD
+	//#define SUPPORT_SENSOR_SCALING // Support Scaled HD from sensors on stitching mode
+	#define CLK_SDRAM		160 //MHz
+	#define CLK_XIN			12 //MHz
+	#define ZT3150_SENSOR		ZT3150_SENSOR_ZT3150HD
+	#define ZT3150_SOLUTION		ZT3150_SOLUTION_D2HD
+	#define ZT3150_CALITYPE		ZT3150_CALIBRATION_VGA
+	#define IMAGE_STITCHING_SIZE	STITCHING_SIZE_1920x1080
+	#define YUVSENSOR
+	#define SUPPORT_D2_LAYER2
+#endif // ZT3150_ZT3150HD
+
 #ifdef SUPPORT_SENSOR_SCALING
 	#define D2_RESOLUTION_SCALED_HD_OFFSET 8 //Must be larger than 4
 #endif // SUPPORT_SENSOR_SCALING
@@ -261,6 +277,17 @@
 # define SENSOR1_REGISTER_VALUE			1	// Sensor 1 one-byte register value
 # define SENSOR1_NACK_ON_I2C_READ
 #elif ZT3150_SENSOR == ZT3150_SENSOR_ZT3150
+# define SENSOR0_I2C_CONFIG			(I2C_REGISTER_ADDRESS_WORD+I2C_REGISTER_VALUE_BYTE+I2C_STOP_START_READ)
+# define SENSOR0_I2C_SLAVE			0x04	// Sensor slave address
+# define SENSOR0_REGISTER_ADDRESS		2	// Sensor two-byte register address
+# define SENSOR0_REGISTER_VALUE			1	// Sensor one-byte register value
+# define SENSOR0_NACK_ON_I2C_READ
+# define SENSOR1_I2C_CONFIG			(I2C_REGISTER_ADDRESS_WORD+I2C_REGISTER_VALUE_BYTE+I2C_STOP_START_READ)
+# define SENSOR1_I2C_SLAVE			0x04	// Sensor slave address
+# define SENSOR1_REGISTER_ADDRESS		2	// Sensor two-byte register address
+# define SENSOR1_REGISTER_VALUE			1	// Sensor one-byte register value
+# define SENSOR1_NACK_ON_I2C_READ
+#elif ZT3150_SENSOR == ZT3150_SENSOR_ZT3150HD
 # define SENSOR0_I2C_CONFIG			(I2C_REGISTER_ADDRESS_WORD+I2C_REGISTER_VALUE_BYTE+I2C_STOP_START_READ)
 # define SENSOR0_I2C_SLAVE			0x04	// Sensor slave address
 # define SENSOR0_REGISTER_ADDRESS		2	// Sensor two-byte register address

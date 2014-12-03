@@ -17,4 +17,6 @@
 	#include "zt3150_hd.c"
 #elif ZT3150_SOLUTION == ZT3150_SOLUTION_D2VGA
 	#include "zt3150_d2vga.c"
+#elif ZT3150_SOLUTION == ZT3150_SOLUTION_D2HD
+	#include "zt3150_d2hd.c"
 #endif // ZT3150_SOLUTION

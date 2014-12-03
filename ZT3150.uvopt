@@ -353,9 +353,9 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>D:\GitHub\ZTKD2\ZT3150\ZT3150.H</PathWithFilename>
-    <TopLine>49</TopLine>
-    <CurrentLine>65</CurrentLine>
+    <PathWithFilename>D:\GitHub\ZTKD2\SOLUTIONS\zt3150_hd.c</PathWithFilename>
+    <TopLine>437</TopLine>
+    <CurrentLine>456</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -379,7 +379,85 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>D:\GitHub\ZTKD2\SOURCE\SENSOR.C</PathWithFilename>
+    <PathWithFilename>D:\GitHub\ZTKD2\ZT3150\zt3150_nt99141.c</PathWithFilename>
+    <TopLine>2487</TopLine>
+    <CurrentLine>2487</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>D:\GitHub\ZTKD2\ZT3150\d2.h</PathWithFilename>
+    <TopLine>32</TopLine>
+    <CurrentLine>32</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>D:\GitHub\ZTKD2\ZT3150\zt3150_ov7725.c</PathWithFilename>
+    <TopLine>121</TopLine>
+    <CurrentLine>136</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>D:\GitHub\ZTKD2\SOURCE\sensor.c</PathWithFilename>
     <TopLine>1</TopLine>
     <CurrentLine>15</CurrentLine>
     <Constant>0</Constant>
@@ -405,9 +483,35 @@
   </AlienFiles>
 
   <AlienFiles>
-    <PathWithFilename>D:\GitHub\ZTKD2\ZT3150\zt3150_nt99141.c</PathWithFilename>
-    <TopLine>244</TopLine>
-    <CurrentLine>244</CurrentLine>
+    <PathWithFilename>D:\GitHub\ZTKD2\ZT3150\zt3150.h</PathWithFilename>
+    <TopLine>49</TopLine>
+    <CurrentLine>66</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>D:\GitHub\ZTKD2\SOLUTIONS\zt3150_d2hd.c</PathWithFilename>
+    <TopLine>151</TopLine>
+    <CurrentLine>156</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -435,13 +539,13 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>4</ActiveTab>
+      <ActiveTab>0</ActiveTab>
       <Documents>
         <Doc>
           <Name>ZT3150\zt3150.h</Name>
           <ColumnNumber>0</ColumnNumber>
           <TopLine>49</TopLine>
-          <CurrentLine>65</CurrentLine>
+          <CurrentLine>66</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\SOURCE\sensor0.c</Name>
@@ -450,7 +554,7 @@
           <CurrentLine>1</CurrentLine>
         </Doc>
         <Doc>
-          <Name>SOURCE\SENSOR.C</Name>
+          <Name>SOURCE\sensor.c</Name>
           <ColumnNumber>48</ColumnNumber>
           <TopLine>1</TopLine>
           <CurrentLine>15</CurrentLine>
@@ -462,10 +566,34 @@
           <CurrentLine>1</CurrentLine>
         </Doc>
         <Doc>
-          <Name>ZT3150\zt3150_nt99141.c</Name>
-          <ColumnNumber>64</ColumnNumber>
-          <TopLine>244</TopLine>
-          <CurrentLine>244</CurrentLine>
+          <Name>D:\GitHub\ZTKD2\ZT3150\zt3150_ov7725.c</Name>
+          <ColumnNumber>103</ColumnNumber>
+          <TopLine>121</TopLine>
+          <CurrentLine>136</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>D:\GitHub\ZTKD2\ZT3150\d2.h</Name>
+          <ColumnNumber>55</ColumnNumber>
+          <TopLine>32</TopLine>
+          <CurrentLine>32</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>D:\GitHub\ZTKD2\ZT3150\zt3150_nt99141.c</Name>
+          <ColumnNumber>100</ColumnNumber>
+          <TopLine>2487</TopLine>
+          <CurrentLine>2487</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>D:\GitHub\ZTKD2\SOLUTIONS\zt3150_hd.c</Name>
+          <ColumnNumber>1</ColumnNumber>
+          <TopLine>437</TopLine>
+          <CurrentLine>456</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>D:\GitHub\ZTKD2\SOLUTIONS\zt3150_d2hd.c</Name>
+          <ColumnNumber>36</ColumnNumber>
+          <TopLine>151</TopLine>
+          <CurrentLine>156</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>
