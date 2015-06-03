@@ -37,8 +37,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  Start of ZT3120 solutions
 ////////////////////////////////////////////////////////////////////////////////
+#define ZT3120_CJC5150_CJC5150
 //#define ZT3120_T515B_T515B
-#define ZT3120_ADV7180_ADV7180
+//#define ZT3120_ADV7180_ADV7180
 //#define ZT3120_T515B_OV7725
 //#define ZT3120_ADV7180_OV7725
 //#define ZT3120_T515B_NT99140
@@ -52,6 +53,7 @@
 #define ZT3120_DECODER_NONE       0
 #define ZT3120_DECODER_T515B      1
 #define ZT3120_DECODER_ADV7180    2
+#define ZT3120_DECODER_CJC5150    3
 
 ///// Supporting List of Video Sensors
 #define ZT3120_SENSOR_NONE        0
@@ -66,6 +68,14 @@
 #define ZT3120_SOLUTION_HD        3
 #define ZT3120_SOLUTION_sHD       4
 
+#ifdef ZT3120_CJC5150_CJC5150
+	#define CLK_SDRAM 120 //MHz
+	#define YUVSENSOR
+	#define SENSOR1_EQ_SENSOR0
+	#define ZT3120_DECODER  ZT3120_DECODER_CJC5150
+	#define ZT3120_SENSOR   ZT3120_SENSOR_NONE
+	#define ZT3120_SOLUTION ZT3120_SOLUTION_DECODER
+#endif // ZT3120_T515B_T515B
 
 #ifdef ZT3120_T515B_T515B
 	#define CLK_SDRAM 120 //MHz
@@ -147,6 +157,12 @@
 	#define SENSOR0_REGISTER_ADDRESS 1     // Sensor 0 one-byte register address
 	#define SENSOR0_REGISTER_VALUE   1     // Sensor 0 one-byte register value
 	//#define SENSOR0_NACK_ON_I2C_READ
+#elif ZT3120_DECODER == ZT3120_DECODER_CJC5150
+	#define SENSOR0_I2C_CONFIG (I2C_REGISTER_ADDRESS_BYTE+I2C_REGISTER_VALUE_BYTE+I2C_RESTART_READ)
+	#define SENSOR0_I2C_SLAVE     0xB8     // Sensor 0 slave address
+	#define SENSOR0_REGISTER_ADDRESS 1     // Sensor 0 one-byte register address
+	#define SENSOR0_REGISTER_VALUE   1     // Sensor 0 one-byte register value
+	//#define SENSOR0_NACK_ON_I2C_READ
 #endif // ZT3120_DECODER
 
 
@@ -166,6 +182,12 @@
 		#define SENSOR1_REGISTER_ADDRESS 1     // Sensor 1 one-byte register address
 		#define SENSOR1_REGISTER_VALUE   1     // Sensor 1 one-byte register value
 		//#define SENSOR1_NACK_ON_I2C_READ
+	#elif ZT3120_DECODER == ZT3120_DECODER_CJC5150
+		#define SENSOR1_I2C_CONFIG (I2C_REGISTER_ADDRESS_BYTE+I2C_REGISTER_VALUE_BYTE+I2C_RESTART_READ)
+		#define SENSOR1_I2C_SLAVE     0xB8     // Sensor 0 slave address
+		#define SENSOR1_REGISTER_ADDRESS 1     // Sensor 0 one-byte register address
+		#define SENSOR1_REGISTER_VALUE   1     // Sensor 0 one-byte register value
+		//#define SENSOR0_NACK_ON_I2C_READ
 	#endif // ZT3120_DECODER
 #elif ZT3120_SENSOR == ZT3120_SENSOR_OV7725
 	#define SENSOR1_I2C_CONFIG (I2C_REGISTER_ADDRESS_BYTE+I2C_REGISTER_VALUE_BYTE+I2C_STOP_START_READ)
