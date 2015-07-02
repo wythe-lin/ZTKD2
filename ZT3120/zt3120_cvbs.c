@@ -25,8 +25,8 @@
 tI2CRegister code I2CInitTableNTSC[] =
 {
 	//{0x00, 0x04},	// Composite decoder Channel; 0000b = auto detect PAL B/G/H/I/D, NTSC J, SECAM
-	//{0x00, 0x14},	// Composite decoder Channel; 0001b = auto detect PAL B/G/H/I/D, NTSC M, SECAM
-	{0x00, 0x54},	// Composite decoder Channel; 0101b = NTSC M
+	{0x00, 0x14},	// Composite decoder Channel; 0001b = auto detect PAL B/G/H/I/D, NTSC M, SECAM
+	//{0x00, 0x54},	// Composite decoder Channel; 0101b = NTSC M
 	//{0x04, 0x57},	// Enable SFL
 	{0x04, 0xD7},	// To fix display blank issue.
 	{0x17, 0x41}, // Select SH1
@@ -44,8 +44,8 @@ tI2CRegister code I2CInitTableNTSC[] =
 tI2CRegister code I2CInitTablePAL[] =
 {
 	//{0x00, 0x04},	// Composite decoder Channel; 0000b = auto detect PAL B/G/H/I/D, NTSC J, SECAM
-	//{0x00, 0x14},	// Composite decoder Channel; 0001b = auto detect PAL B/G/H/I/D, NTSC M, SECAM
-	{0x00, 0x84},	// Composite decoder Channel; 1000b = PAL B/G/H/I/D
+	{0x00, 0x14},	// Composite decoder Channel; 0001b = auto detect PAL B/G/H/I/D, NTSC M, SECAM
+	//{0x00, 0x84},	// Composite decoder Channel; 1000b = PAL B/G/H/I/D
 	//{0x04, 0x57},	// Enable SFL
 	{0x04, 0xD7},	// To fix display blank issue.
 	{0x17, 0x41}, // Select SH1
@@ -113,6 +113,92 @@ tI2CRegister code I2CInitTablePAL[] =
 	{0x3B, 0xCB},
 	//{0x27, 0x20},		//blue screen 0x20:auto,  0x10:enable
 	{0x5F, 0x00},			//Release RESET
+};
+
+	#elif ZT3120_DECODER == ZT3120_DECODER_CJC5150
+
+tI2CRegister code I2CInitTableNTSC[] = {
+	{0x00, 0x00},	// video input source selection; 
+			// when set 0x00, select AIP1A and CVBS input;
+			// when set 0x01, select AIP1B and CVBS input;
+			// when set 0x03, select AIP1A(Luma) and AIP1B(Chroma) S-Video input;
+
+	{0x01, 0x15},	// Analog channel controls, AGC Enable
+	{0x02, 0x00},	// Operation mode controls, Normal Operation mode	
+	{0x03, 0xAF},	// Miscellaneous controls, Output SCLK=27MHz, HSYNC, VSYNC, AVID, FID
+			// when set 0x00, SCLK, HSYNC, VSYNC, AVID, FID are high-impedance;
+
+	{0x04, 0xC0},	// Autoswitch mask, Autoswitch to NTSC, PAL, SECAM	
+	{0x28, 0x00},	// Video standard, autoswitch mode				
+	{0x06, 0x10},	// ColorKiller, Automatic color killer;
+			// when set 0x50, Color killer enable, CbCr forced to zero;
+
+	{0x0F, 0x02},	// Configuration shared pins, output FID, VSYNC, VBLK, SCLK
+			// when set 0x03, output FID, VSYNC, VBLK, PCLK = 13.5MHz;
+
+	{0x0D, 0x47},	// Output and data rates select;
+			// when set 0x47(default), output 8-bit ITU-R BT.656 interface with embedded sync
+			// when set 0x40, output 8-bit ITU-R BT.601 interface with discrete sync
+
+	{0x11, 0x00},	// Active video cropping start MSB;
+	{0x12, 0x00},	// Active video cropping start LSB;
+	{0x13, 0x00},	// Active video cropping stop MSB;
+	{0x14, 0x00},	// Active video cropping stop LSB;
+			// Cropping register can set image size only when AVID(26 pin) is used for the Horizontal sync signal
+
+	{0x16, 0x80},	// Horizontal Sync (HSYNC) Start Register;
+			// Set this register can make the image right or left moving only when HSYNC(25 pin) is used 
+
+	{0x18, 0x00},	// Vertial Blanking start;
+	{0x19, 0x00},	// Vertial Blanking stop;
+			// Set this register can make the image up or down moving only when VBLK(27 pin) is used for Vertial sync signal
+
+	{0x09, 0x80},	// Luminance control; 	
+	{0x0A, 0x80},	// Chroma saturation control; 	
+	{0x0B, 0x00},	// Chroma hue control; 	
+	{0x0C, 0x80},	// Luminance contrast control;
+};
+
+tI2CRegister code I2CInitTablePAL[] = {
+	{0x00, 0x00},	// video input source selection; 
+			// when set 0x00, select AIP1A and CVBS input;
+			// when set 0x01, select AIP1B and CVBS input;
+			// when set 0x03, select AIP1A(Luma) and AIP1B(Chroma) S-Video input;
+
+	{0x01, 0x15},	// Analog channel controls, AGC Enable
+	{0x02, 0x00},	// Operation mode controls, Normal Operation mode	
+	{0x03, 0xAF},	// Miscellaneous controls, Output SCLK=27MHz, HSYNC, VSYNC, AVID, FID
+			// when set 0x00, SCLK, HSYNC, VSYNC, AVID, FID are high-impedance;
+
+	{0x04, 0xC0},	// Autoswitch mask, Autoswitch to NTSC, PAL, SECAM	
+	{0x28, 0x00},	// Video standard, autoswitch mode				
+	{0x06, 0x10},	// ColorKiller, Automatic color killer;
+			// when set 0x50, Color killer enable, CbCr forced to zero;
+
+	{0x0F, 0x02},	// Configuration shared pins, output FID, VSYNC, VBLK, SCLK
+			// when set 0x03, output FID, VSYNC, VBLK, PCLK = 13.5MHz;
+
+	{0x0D, 0x47},	// Output and data rates select;
+			// when set 0x47(default), output 8-bit ITU-R BT.656 interface with embedded sync
+			// when set 0x40, output 8-bit ITU-R BT.601 interface with discrete sync
+
+	{0x11, 0x00},	// Active video cropping start MSB;
+	{0x12, 0x00},	// Active video cropping start LSB;
+	{0x13, 0x00},	// Active video cropping stop MSB;
+	{0x14, 0x00},	// Active video cropping stop LSB;
+			// Cropping register can set image size only when AVID(26 pin) is used for the Horizontal sync signal
+
+	{0x16, 0x80},	// Horizontal Sync (HSYNC) Start Register;
+			// Set this register can make the image right or left moving only when HSYNC(25 pin) is used 
+
+	{0x18, 0x00},	// Vertial Blanking start;
+	{0x19, 0x00},	// Vertial Blanking stop;
+			// Set this register can make the image up or down moving only when VBLK(27 pin) is used for Vertial sync signal
+
+	{0x09, 0x80},	// Luminance control; 	
+	{0x0A, 0x80},	// Chroma saturation control; 	
+	{0x0B, 0x00},	// Chroma hue control; 	
+	{0x0C, 0x80},	// Luminance contrast control;
 };
 
 	#endif // ZT3120_DECODER
