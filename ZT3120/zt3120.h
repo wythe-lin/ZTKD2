@@ -159,7 +159,7 @@
 	//#define SENSOR0_NACK_ON_I2C_READ
 #elif ZT3120_DECODER == ZT3120_DECODER_CJC5150
 	#define SENSOR0_I2C_CONFIG (I2C_REGISTER_ADDRESS_BYTE+I2C_REGISTER_VALUE_BYTE+I2C_RESTART_READ)
-	#define SENSOR0_I2C_SLAVE     0xB8     // Sensor 0 slave address
+	#define SENSOR0_I2C_SLAVE     0xBA     // Sensor 0 slave address
 	#define SENSOR0_REGISTER_ADDRESS 1     // Sensor 0 one-byte register address
 	#define SENSOR0_REGISTER_VALUE   1     // Sensor 0 one-byte register value
 	//#define SENSOR0_NACK_ON_I2C_READ
@@ -184,7 +184,7 @@
 		//#define SENSOR1_NACK_ON_I2C_READ
 	#elif ZT3120_DECODER == ZT3120_DECODER_CJC5150
 		#define SENSOR1_I2C_CONFIG (I2C_REGISTER_ADDRESS_BYTE+I2C_REGISTER_VALUE_BYTE+I2C_RESTART_READ)
-		#define SENSOR1_I2C_SLAVE     0xB8     // Sensor 0 slave address
+		#define SENSOR1_I2C_SLAVE     0xBA     // Sensor 0 slave address
 		#define SENSOR1_REGISTER_ADDRESS 1     // Sensor 0 one-byte register address
 		#define SENSOR1_REGISTER_VALUE   1     // Sensor 0 one-byte register value
 		//#define SENSOR0_NACK_ON_I2C_READ
