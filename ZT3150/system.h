@@ -10,7 +10,6 @@
 #ifndef __SYSTEM_H__
 #define __SYSTEM_H__
 
-
 #ifdef ZT3150
 	#define I2C_INTERFACE
 	#define SENSOR1_EQ_SENSOR0

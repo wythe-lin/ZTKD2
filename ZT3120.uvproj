@@ -362,14 +362,14 @@
           <GroupName>SOURCE</GroupName>
           <Files>
             <File>
-              <FileName>main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\SOURCE\main.c</FilePath>
-            </File>
-            <File>
               <FileName>STARTUP.A51</FileName>
               <FileType>2</FileType>
               <FilePath>.\SOURCE\STARTUP.A51</FilePath>
+            </File>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SOURCE\main.c</FilePath>
             </File>
             <File>
               <FileName>uart.c</FileName>

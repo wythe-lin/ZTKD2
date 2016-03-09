@@ -27,6 +27,11 @@
 
 #ifdef SUPPORT_D2_OPERATION
 
+	#define CLK_SENSOR	24
+	#if (CLK_PLL / CLK_SENSOR >= 16)
+		#error Maximum Clock Divider for CLK_SENSOR is 16.
+	#endif
+
 	// In this solution:
 	//
 	// Buffer size for ZT3150 VGA video sensor is 640x480x2x2 = 1,228,800.
@@ -345,24 +350,24 @@ tD2Register code D2TableSOU_QuadVGA[] = {
 #endif // SOU_FIXED_COLOR
 
 #if SOU_QuadVGACLK == 53
-	{0x41B, 0x8A}, {0x41C, 0x14},
+	{0x41B, 0x8A}, {0x41C, 0x14},	// 5258
 #else  // SOU_QuadVGACLK == 64, 80
-	{0x41B, 0x36}, {0x41C, 0x15},
+	{0x41B, 0x36}, {0x41C, 0x15},	// 5430
 #endif // SOU_QuadVGACLK
 	{0x41D, 0x04}, {0x41E, 0x00},
 	{0x41F, 0x44}, {0x420, 0x00},
-	{0x421, 0x44}, {0x422, 0x00},
-	{0x423, 0x43}, {0x424, 0x14},
+	{0x421, 0x44}, {0x422, 0x00},	// 68
+	{0x423, 0x43}, {0x424, 0x14},	// 5187
 
 #if SOU_QuadVGACLK == 53
-	{0x425, 0xE3}, {0x426, 0x01},
+	{0x425, 0xE3}, {0x426, 0x01},	// 483
 #else  // SOU_QuadVGACLK == 64, 80
-	{0x425, 0xEB}, {0x426, 0x01},
+	{0x425, 0xEB}, {0x426, 0x01},	// 491
 #endif // SOU_QuadVGACLK
 	{0x427, 0x01}, {0x428, 0x00},
 	{0x42B, 0x02}, {0x42C, 0x00},
 	{0x42F, 0x02}, {0x430, 0x00},
-	{0x431, 0xE1}, {0x432, 0x01},
+	{0x431, 0xE1}, {0x432, 0x01},	// 481
 	// SOU Control
 	{0x411, 0x05},
 };
@@ -756,13 +761,13 @@ unsigned char fnD2ResetLayer2(void)
 	unsigned char  ucCmdAck;
 
 	ucSN0_CLK = ucSN1_CLK = 0x08;
-	D2WriteSensorClock(24);  // Set Sensor Clock in MHz
+	D2WriteSensorClock(CLK_SENSOR);	// Set Sensor Clock in MHz
 	fnD2SetSN0Reset();
 	fnD2SetSN1Reset();
-	fnD2IdleDelay(200); // count 100 around 12ms
+	fnD2IdleDelay(200);	// count 100 around 12ms
 	fnD2ClrSN0Reset();
 	fnD2ClrSN1Reset();
-	fnD2IdleDelay(200); // count 100 around 12ms
+	fnD2IdleDelay(200);	// count 100 around 12ms
 
 	ucCmdAck = 0x00;
 	while (ucCmdAck != 0x80) {

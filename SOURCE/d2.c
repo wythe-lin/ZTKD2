@@ -6,7 +6,7 @@
 // All files in this project cannot be released to customers.
 //
 // May 23, 2012.
-
+	#include <intrins.h>
 	#include "system.h"
 	#include "sdram.h"
 	#include "d2.h"
@@ -557,8 +557,7 @@ unsigned char fnD2GetPIO1()
 
 #ifdef SUPPORT_D2_OPERATION
 
-void fnD2IdleDelay(
-	unsigned short usDelay)
+void fnD2IdleDelay(unsigned short usDelay)
 {
 	unsigned short	idx;
 

@@ -36,15 +36,15 @@ extern unsigned char xdata Port8Enable;
 extern unsigned char xdata Port8Value;
 extern unsigned char xdata Port10Mux;
 
-	#ifdef FPGA_VERIFY
-#define D2DisableSensorClock() { }
-#define D2WriteSensorClock(v)  { }
-#define D2WriteOutputClock(v)  { ucSOU_CLK_DIV = ((CLK_PLL/(v)-1)); ucSOU_CLK_WIDTH = (CLK_PLL/(v)/2); }
-	#else  // FPGA_VERIFY
-#define D2DisableSensorClock() { ucSEN_CLK_DIV = 0; ucSEN_CLK_WIDTH = 0; }
-#define D2WriteSensorClock(v)  { ucSEN_CLK_DIV = ((CLK_PLL/(v)-1) | 0x80); ucSEN_CLK_WIDTH = ((CLK_PLL/(v)/2) | 0x80); }
-#define D2WriteOutputClock(v)  { ucSOU_CLK_DIV = ((CLK_PLL/(v)-1)); ucSOU_CLK_WIDTH = (CLK_PLL/(v)/2); }
-	#endif // FPGA_VERIFY
+#ifdef FPGA_VERIFY
+    #define D2DisableSensorClock()	{ }
+    #define D2WriteSensorClock(v)	{ }
+    #define D2WriteOutputClock(v)	{ ucSOU_CLK_DIV = ((CLK_PLL/(v)-1)); ucSOU_CLK_WIDTH = (CLK_PLL/(v)/2); }
+#else  // FPGA_VERIFY
+    #define D2DisableSensorClock()	{ ucSEN_CLK_DIV = 0; ucSEN_CLK_WIDTH = 0; }
+    #define D2WriteSensorClock(v)	{ ucSEN_CLK_DIV = ((CLK_PLL/(v)-1) | 0x80); ucSEN_CLK_WIDTH = ((CLK_PLL/(v)/2) | 0x80); }
+    #define D2WriteOutputClock(v)	{ ucSOU_CLK_DIV = ((CLK_PLL/(v)-1)); ucSOU_CLK_WIDTH = (CLK_PLL/(v)/2); }
+#endif // FPGA_VERIFY
 
 	typedef union
 	{

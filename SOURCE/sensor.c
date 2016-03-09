@@ -9,6 +9,7 @@
 //
 // May 21, 2012.
 
+
 #ifdef I2C_INTERFACE
 
 tI2CWorkItem I2CWorkItem;
